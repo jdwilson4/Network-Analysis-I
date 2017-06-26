@@ -61,23 +61,33 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 ### Case Studies
-| Case Study | Data | Date |
-|:---: | :---  | :---:  |
-|[I: Beer Review Analysis](https://github.com/jdwilson4/Intro-Data-Science-2017/blob/master/Code_Demonstrations/Case%20Study%201/Beer_Analysis.pdf) | [beerdata.RData](https://github.com/jdwilson4/Intro-Data-Science-2017/blob/master/Code_Demonstrations/Case%20Study%201/beer.data.RData) | Thursday, 2/16| 
-|[II: March Madness College Basketball](https://github.com/jdwilson4/Intro-Data-Science-2017/blob/master/Code_Demonstrations/Case%20Study%202/March_Madness.pdf)| [March_Madness.RData](https://github.com/jdwilson4/Intro-Data-Science-2017/blob/master/Data/March_Madness.RData)| Thursday, 3/2|
+| Case Study | Data |
+|:---: | :---  | 
+|[I: The Basics - Input, Network Representations, and Visualization]() | []() | 
+|[II: Structural Importance]()| []()| 
+|[III: Network Motifs I - paths, shortest paths and connected components]() | []() |
+|[IV: Network Motifs II - graph counts]() | []() |
+|[V: Community Detection]() | []() |
+|[VI: Epidemics on Networks - SIR, SIS, and Cascades]() | []() |
+|[VII: Temporal Networks - Structures over Time]() | []() |
 
 
-### Final Project
-| Description | Due Date |
-|:---: | :---  |
-|[Project Signup](https://docs.google.com/spreadsheets/d/1pIAeZ1W5OENRyHbpfZgxKFzmGOtRNT2XkPkCQpjhzHI/edit?usp=sharing) | Thursday, 4/6 |
-|[Final Project Description](https://github.com/jdwilson4/Intro-Data-Science-2017/blob/master/Assignments/Final_Project.pdf) | Tuesday, 5/9 |
+
+### Network Data
+| Data | Description |
+|:---: | :---  | 
+|[Zachary Karate Club]() | [Here]()|
+|[Political Blog]() | [Here]()|
+|[Les Miserables]() | [Here]()|
+|[Power Grid]() | [Here]()|
+|[Facebook Social Circles]() | [Here]()|
+|[Enron Email Network]() | [Here]()|
+|[Personal Facebook Network]() | [Here]()|
+|[Political Co-Voting Network]()| [Here]()|
 
 
 ### Important Dates
 
-- Friday, January 27th - Last day to add the class
-- Friday, February 10th - Census date. Last day to withdraw with tuition reversal
-- Monday, March 13th - Friday, March 17th - Spring break! (**no class**)
-- Monday, April 10th - Last day to withdraw
-- Thursday, May 11th - Last day of class
+- Tuesday, June 27th - First day of class
+- Tuesday, July 4th - Holiday, **no class**
+- Friday, July 21st - Last day of class
