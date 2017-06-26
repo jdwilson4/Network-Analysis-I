@@ -43,8 +43,9 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 | Topic | Reading | Practice |
-|---: | :---  | ---:  | 
-|[Data Science and Network Analysis]()| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)|
+|:--- | :---  | :---  | 
+|[Intro and A Brief History of Data Science](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%201%20Introduction.pdf)| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)|
+|[Basics of R and RStudio](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%202%20R%20and%20RStudio.pdf)|  |  |
 
 
 
