@@ -42,6 +42,7 @@ The focus of this course will be to provide you with the basic techniques availa
 ### Schedule
 
 **Basics of R and Data Science** 
+
 | Topic | Reading | Practice |
 |:--- | :---  | :---  |  
 |[Intro and A Brief History of Data Science](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%201%20Introduction.pdf)| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)|
@@ -50,22 +51,27 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 **Foundations of Network Analysis: A History, Applications, and Types**
+
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
 **Network Statistics: Local and Global Summaries**
+
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
 **Mesoscopic Properties of Networks**
+
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
 **Dynamics on Networks**
+
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
 **Multilayer and Temporal Networks**
+
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
