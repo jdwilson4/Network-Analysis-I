@@ -9,3 +9,6 @@ Lada A. Adamic and Natalie Glance, "The political blogosphere and the 2004 US El
 D. J. Watts and S. H. Strogatz, "Collective dynamics of `small-world' networks", Nature 393, 440-442 (1998).
 ## Facebook Network 
 J. McAuley and J. Leskovec. Learning to Discover Social Circles in Ego Networks. NIPS, 2012.
+## Enron Email Network 
+- J. Leskovec, K. Lang, A. Dasgupta, M. Mahoney. Community Structure in Large Networks: Natural Cluster Sizes and the Absence of Large Well-Defined Clusters. Internet Mathematics 6(1) 29--123, 2009.
+- B. Klimmt, Y. Yang. Introducing the Enron corpus. CEAS conference, 2004.
