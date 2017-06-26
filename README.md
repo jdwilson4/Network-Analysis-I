@@ -44,7 +44,7 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
-|**Basics of R and Data Science** >> | 
+|**Basics of R and Data Science** || 
 |[Intro and A Brief History of Data Science](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%201%20Introduction.pdf)| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)|
 |[Basics of R and RStudio](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%202%20R%20and%20RStudio.pdf)|  [Ch. 2 and 4 of *R for Data Science](http://r4ds.had.co.nz/index.html)|[Assignment 2](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment2.pdf)|
 |[Data Structures in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%203%20Data%20Structures.pdf)| [Ch. 20 of *R for Data Science](http://r4ds.had.co.nz/vectors.html) | [Assignment 3](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment3.pdf)|
