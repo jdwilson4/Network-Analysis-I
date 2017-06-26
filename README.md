@@ -16,26 +16,32 @@
 
 By the end of this course, you will be able to
 
-- Proficiently wrangle, manipulate, and explore data using the R programming language
-- Utilize contemporary R libraries including *ggplot2*, *tibble*, *tidyr*, *dplyr*, *knitr*, and *stringr*
-- Visualize, present, and communicate trends in a variety of data types
-- Communicate results using R markdown and R Shiny
-- Formulate data-driven hypotheses using exploratory data analysis and introductory model building techniques
+- Proficiently wrangle, manipulate, and explore network data using the R programming language
+- Utilize contemporary network R libraries including *statnet* and *igraph*
+- Visualize network data
+- Partition networks using contemporary community detection methods
+- Formulate data-driven hypotheses about relational systems using network analysis tools
 
 ## Course Overview
 
-### Assessment
 
-The focus of this course will be to provide you with the basic techniques available for making informed, data-driven decisions using the R programming language. This is *not* a statistics course, but will provide you the intuition to make hypotheses about complex questions through visualization, wrangling, manipulation, and exploration of data. The course will be graded based on the following components:
+The focus of this course will be to provide you with the basic techniques available for making informed, data-driven decisions with network data structures using the R programming language. In particular, we will discuss the following topics
 
-- **Attendence** (20%): You will lose 2% of this grade for every course you miss.
-- **Assignments** (50%): You will be assigned a computational assignment to be completed using RStudio and the package *knitr* regularly throughout class. 
-- **Final Project** (30%): The final project will be a computational case study that brings together the techniques learned throughout the semester. The description for this project will be provided towards the mid point of the semester.
-- **Extra Credit** (+5%): Create a *well-organized* database of *all* R functions that you use throughout the semester. These include those mentioned in lectures, those introduced in homework, etc. Along with each function, give a brief description that details the use of the function. Also, organize these functions into categories according to their use.
+- History of Networks
+- Network Applications
+- Types of Network data: static, temporal, multilayer, directed, undirected, bipartite
+- Structural Importance and Centrality
+- Topological Summaries of Networks
+- Shortest Paths
+- Automatic Feature Learning of Graphs
+- Mesoscopic Properties of Graphs
+- Community Detection
+- Epidemics on Networks
+- Intro to Statistical Network Modeling
+
 
 ### Schedule
 
-Overall, this course will be split into two main parts: (1) learning the basics of how to code in R and (2) performing data analysis on real case studies and examples using data science techniques in R.
 
 | Lecture | Topic | Assignment | Due Date |
 |:---: | :---  | :---:  | :---:  |
