@@ -8,7 +8,6 @@
 
 **Office Hours**: T, TH 3:30 - 4:30 PM in 1106 D Perry building
 
-**Book**: [R for Data Science](http://r4ds.had.co.nz/index.html) by Hadley Wickham and Garret Grolemund
 
 **Syllabus**: [Link](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Syllabus_Network_Analtyics.pdf)
 
@@ -45,7 +44,7 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice |
 |---: | :---  | ---:  | 
-
+|[Data Science and Network Analysis]()| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1]()|
 
 
 
