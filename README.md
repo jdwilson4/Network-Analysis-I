@@ -90,12 +90,12 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 ### Network Data
-- [Zachary Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt)
-- [Political Blog](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt) 
-- [Les Miserables](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/lesmis.txt) 
-- [Power Grid](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/power.txt) 
-- [Facebook Social Circles](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/facebook_combined.txt) 
-- [Enron Email Network](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/email-Enron.txt) 
+- [Zachary Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt): A social network of friendships between 34 members of a karate club at a US university in the 1970s.
+- [Political Blog](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt): A directed network of hyperlinks between weblogs on US politics, recorded in 2005 by Adamic and Glance.
+- [Les Miserables](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/lesmis.txt): A coappearance network of characters in the novel Les Miserables. 
+- [Power Grid](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/power.txt): An undirected, unweighted network representing the topology of the Western States Power Grid of the United States.
+- [Facebook Social Circles](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/facebook_combined.txt): A network of anonymized social circles from Facebook. 
+- [Enron Email Network](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/email-Enron.txt): Enron email communication network where nodes are email addresses and edges are emails sent from *i* to *j*. 
 - [Personal Facebook Network]() 
 - [Political Co-Voting Network]()
 
