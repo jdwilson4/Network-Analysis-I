@@ -90,10 +90,14 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 ### Network Data
-
-|[Zachary Karate Club]() |[Political Blog]() |[Les Miserables]() |
-|[Power Grid]() |[Facebook Social Circles]() |[Enron Email Network]() |
-|[Personal Facebook Network]() |[Political Co-Voting Network]()| |
+- [Zachary Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt)
+- [Political Blog](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt) 
+- [Les Miserables](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/lesmis.txt) 
+- [Power Grid](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/power.txt) 
+- [Facebook Social Circles](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/facebook_combined.txt) 
+- [Enron Email Network](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/email-Enron.txt) 
+- [Personal Facebook Network]() 
+- [Political Co-Voting Network]()
 
 
 ### Important Dates
