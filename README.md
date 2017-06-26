@@ -91,7 +91,6 @@ The focus of this course will be to provide you with the basic techniques availa
 
 ### Network Data
 
-| :---| :---  | :--- |
 |[Zachary Karate Club]() |[Political Blog]() |[Les Miserables]() |
 |[Power Grid]() |[Facebook Social Circles]() |[Enron Email Network]() |
 |[Personal Facebook Network]() |[Political Co-Voting Network]()| |
