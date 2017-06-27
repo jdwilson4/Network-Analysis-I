@@ -6,7 +6,7 @@
 
 **Class Time**: M-F, 1:00 - 3:00 PM in 1650 CHEM building
 
-**Office Hours**: T, TH 3:30 - 4:30 PM in 1106 D Perry building
+**Office Hours**: T, TH 11:30 AM - 12:30 PM in 1106 D Perry building
 
 
 **Syllabus**: [Link](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Syllabus_Network_Analtyics.pdf)
@@ -80,6 +80,8 @@ The focus of this course will be to provide you with the basic techniques availa
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
+### Additional Resources
+- [Base R Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
 
 ### Case Studies
 | Case Study | Data |
