@@ -6,7 +6,7 @@
 
 **Class Time**: M-F, 1:00 - 3:00 PM in 1650 CHEM building
 
-**Office Hours**: T, TH 11:30 - 12:30 PM in 1106 D Perry building
+**Office Hours**: T, TH 11:30 AM - 12:30 PM in 1106 D Perry building
 
 
 **Syllabus**: [Link](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Syllabus_Network_Analtyics.pdf)
