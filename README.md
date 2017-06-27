@@ -75,6 +75,8 @@ The focus of this course will be to provide you with the basic techniques availa
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
+### Additional Resources
+- [Base R Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
 
 ### Case Studies
 | Case Study | Data |
