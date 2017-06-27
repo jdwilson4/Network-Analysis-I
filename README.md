@@ -55,6 +55,11 @@ The focus of this course will be to provide you with the basic techniques availa
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
 
+| History of Network Analysis | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | Assignment 4 |
+| Applications of Networks | Ch 2 - 5 of Networks: An Introduction by M.E.J Newman | Assignment 5 |
+| Network Types | |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | Assignment 6 |
+
+
 **Network Statistics: Local and Global Summaries**
 
 | Topic | Reading | Practice |
