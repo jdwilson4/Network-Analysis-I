@@ -54,15 +54,13 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
-<<<<<<< HEAD
-| History of Network Analysis | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | - |
+| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | - |
 | Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | Assignment 4 |
 | Where's the Network? | - | Assignment 5 |
 =======
 | History of Network Analysis | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 4 |
 | Applications of Networks | Ch 2 - 5 of Networks: An Introduction | Assignment 5 |
 | Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 6 |
->>>>>>> fb3749c177581962e8dd32a52f01022090ca0868
 
 
 **Network Statistics: Local and Global Summaries**
