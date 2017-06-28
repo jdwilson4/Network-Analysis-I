@@ -85,7 +85,7 @@ The focus of this course will be to provide you with the basic techniques availa
 ### Case Studies
 | Case Study | Data |
 |:---| :---  | 
-|[I: The Basics - Input, Network Representations, and Visualization](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/KarateClub_Centrality.Rmd) | [Zachary's Karate Club](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt) | 
+|[I: The Basics - Input, Network Representations, and Visualization](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Case%20Studies/KarateClub_Centrality.Rmd) | [Zachary's Karate Club](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt) | 
 |[II: Structural Importance]()| []()| 
 |[III: Network Motifs I - paths, shortest paths and connected components]() | []() |
 |[IV: Network Motifs II - graph counts]() | []() |
