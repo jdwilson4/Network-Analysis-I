@@ -54,9 +54,15 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
+<<<<<<< HEAD
 | History of Network Analysis | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | - |
 | Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | Assignment 4 |
 | Where's the Network? | - | Assignment 5 |
+=======
+| History of Network Analysis | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 4 |
+| Applications of Networks | Ch 2 - 5 of Networks: An Introduction | Assignment 5 |
+| Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 6 |
+>>>>>>> fb3749c177581962e8dd32a52f01022090ca0868
 
 
 **Network Statistics: Local and Global Summaries**
@@ -81,11 +87,13 @@ The focus of this course will be to provide you with the basic techniques availa
 
 ### Additional Resources
 - [Base R Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
+- [Try R by CodeSchool](http://tryr.codeschool.com/) Quick, interactive R coding lessons
+- [Swirl](http://swirlstats.com/students.html) (skip step 1 and 2 if you have already installed R and R Studio) Interactive coding lessions in R Studio
 
 ### Case Studies
 | Case Study | Data |
 |:---| :---  | 
-|[I: The Basics - Input, Network Representations, and Visualization]() | []() | 
+|[I: The Basics - Input, Network Representations, and Visualization](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Case%20Studies/KarateClub_Centrality.Rmd) | [Zachary's Karate Club](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt) | 
 |[II: Structural Importance]()| []()| 
 |[III: Network Motifs I - paths, shortest paths and connected components]() | []() |
 |[IV: Network Motifs II - graph counts]() | []() |
@@ -96,7 +104,7 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 ### Network Data
-- [Zachary Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt): A social network of friendships between 34 members of a karate club at a US university in the 1970s.
+- [Zachary's Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt): A social network of friendships between 34 members of a karate club at a US university in the 1970s.
 - [Political Blog](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt): A directed network of hyperlinks between weblogs on US politics, recorded in 2005 by Adamic and Glance.
 - [Les Miserables](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/lesmis.txt): A coappearance network of characters in the novel Les Miserables. 
 - [Power Grid](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/power.txt): An undirected, unweighted network representing the topology of the Western States Power Grid of the United States.
