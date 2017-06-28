@@ -64,6 +64,10 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
+| Paths, Shortest Paths, and Connected Components | - | - |
+| Degree Distribution and Empirical Studies | - | - |
+| Graph Counts | - | - |
+| Structural Importance: Vertex Centrality | - | - |
 
 **Mesoscopic Properties of Networks**
 
