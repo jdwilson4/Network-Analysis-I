@@ -81,6 +81,8 @@ The focus of this course will be to provide you with the basic techniques availa
 
 ### Additional Resources
 - [Base R Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
+- [Try R by CodeSchool](http://tryr.codeschool.com/) Quick, interactive R coding lessons
+- [Swirl](http://swirlstats.com/students.html) (skip step 1 and 2 if you have already installed R and R Studio) Interactive coding lessions in R Studio
 
 ### Case Studies
 | Case Study | Data |
