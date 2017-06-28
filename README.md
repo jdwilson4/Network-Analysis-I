@@ -85,7 +85,7 @@ The focus of this course will be to provide you with the basic techniques availa
 ### Case Studies
 | Case Study | Data |
 |:---| :---  | 
-|[I: The Basics - Input, Network Representations, and Visualization]() | []() | 
+|[I: The Basics - Input, Network Representations, and Visualization](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/KarateClub_Centrality.Rmd) | [Zachary's Karate Club](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt) | 
 |[II: Structural Importance]()| []()| 
 |[III: Network Motifs I - paths, shortest paths and connected components]() | []() |
 |[IV: Network Motifs II - graph counts]() | []() |
@@ -96,7 +96,7 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 ### Network Data
-- [Zachary Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt): A social network of friendships between 34 members of a karate club at a US university in the 1970s.
+- [Zachary's Karate Club](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/karate.txt): A social network of friendships between 34 members of a karate club at a US university in the 1970s.
 - [Political Blog](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt): A directed network of hyperlinks between weblogs on US politics, recorded in 2005 by Adamic and Glance.
 - [Les Miserables](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/lesmis.txt): A coappearance network of characters in the novel Les Miserables. 
 - [Power Grid](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/power.txt): An undirected, unweighted network representing the topology of the Western States Power Grid of the United States.
