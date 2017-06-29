@@ -1,39 +1,36 @@
 ---
-title: "Identifying the Most Central Folks in Karate"
+title: "Identifying the Most Central Folks in a Network"
 author: "James D. Wilson"
 date: "6/27/2017"
 output: html_document
 ---
 
-##Important Graph Analytic Packages
+##Network Analysis Setup
 
 Two important packages that are commonly used for network analysis include `igraph` and `statnet`. Full documentation on `igraph` is available at http://igraph.org/redirect.html, including functions in the package for \texttt{Python}, \texttt{R} and \texttt{C}. 
 
-Let's begin by installing these packages.
+Since we've previously installed these packages, let's begin by loading them into our library.
 
 ```{r, echo = TRUE, eval = TRUE}
-install.packages("statnet", repos = "https://cloud.r-project.org")
-install.packages("igraph", repos = "https://cloud.r-project.org")
-install.packages("Matrix", repos = "https://cloud.r-project.org")
 library(igraph)
 library(statnet)
 library(Matrix)
 
 ```
-
-##igraph Objects: Downloading and Analyzing data
+## EXAMPLE 1: Zachary's Karate Club Network
+### Download Data and Convert to Matrix
 ```{r, echo = TRUE, eval = TRUE}
 #download raw edgelist
-data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
+karate.data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
 #convert data to matrix
-edgelist <- as.matrix(data) + 1
+karate.edgelist <- as.matrix(data) + 1
 ```
-###Create igraph objects from edgelist
+### Convert Network Edge Data to 'igraph' Objects
 ```{r, echo = TRUE, eval = TRUE}
 #general igraph (defaults to directed)
-karate.igraph <- graph.edgelist(edgelist)
+karate.igraph <- graph.edgelist(karate.edgelist)
 #undirected igraph
-karate.undirected.graph <- graph.edgelist(edgelist, directed = FALSE)
+karate.undirected.graph <- graph.edgelist(karate.edgelist, directed = FALSE)
 #adjacency matrix from igraph object
 karate.adjacency <- as_adj(karate.igraph)
 
@@ -143,5 +140,108 @@ plot(karate.network, main = paste("Betweenness Centrality"), usearrows = TRUE, v
 
 #plot closeness
 plot(karate.network, main = paste("Closeness Centrality"), usearrows = TRUE, vertex.cex = closeness.centrality * 150 + 1, edge.col = "grey50", coord = x, vertex.col = group.labels)
+
+```
+
+## EXAMPLE 2: Political Blogs Network
+### Download Data and Convert to Matrix
+```{r, echo = TRUE, eval = TRUE}
+#download raw edgelist
+pblog.data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/polblogs.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
+#convert data to matrix
+pblog.edgelist <- as.matrix(pblog.data) + 1
+```
+
+### Convert Network Edge Data to 'igraph' Objects
+```{r, echo = TRUE, eval = TRUE}
+#general igraph (defaults to directed)
+pblog.igraph <- graph.edgelist(plog.edgelist)
+#undirected igraph
+pblog.undirected.graph <- graph.edgelist(pblog.edgelist, directed = FALSE)
+#adjacency matrix from igraph object
+pblog.adjacency <- as_adj(pblog.igraph)
+
+```
+
+### Adjacency Matrix Visualization
+```{r, echo = TRUE, eval = TRUE}
+image(Matrix(pblog.adjacency))
+
+```
+
+---
+
+##Network Centrality Measures and Visualization
+###Create network from edge list
+```{r, echo = TRUE, eval = TRUE}
+pblog.network <- network(pblog.edgelist)
+pblog.x <- plot(pblog.network, main = paste("Political Blog Network"), usearrows = TRUE, edge.col = "grey50")
+
+pblog.x
+```
+
+###Calculate In-Degree, Out-Degree, Eigenvector, Betweenness, and Closeness Centralities
+```{r, echo = TRUE, eval = TRUE}
+#in degree centrality
+in.degree.centrality <- colSums(as.matrix(pblog.adjacency)) + 1
+
+#out degree centrality
+out.degree.centrality <- rowSums(as.matrix(pblog.adjacency)) + 1
+
+#eigenvector centrality
+eigenvector.centrality <- eigen_centrality(pblog.igraph, directed = FALSE)$vector
+
+#normalized betweenness centrality
+betweenness.centrality <- estimate_betweenness(pblog.igraph, directed = TRUE, cutoff = 10)
+
+#closeness centrality
+closeness.centrality <- estimate_closeness(pblog.igraph, mode = "total", normalized = FALSE, cutoff = 10)
+```
+
+###Plot Network According to Centrality Measures
+```{r, echo = TRUE}
+par(mfrow = c(2,3))
+
+#plot original network 
+plot(pblog.network, main = "Political Blog Network", usearrows = TRUE, edge.col = "grey50", coord = x)
+
+#plot in-degree
+plot(pblog.network, main = paste("In-Degree Centrality"), usearrows = TRUE, vertex.cex = in.degree.centrality, edge.col = "grey50", coord = x)
+
+#plot out-degree
+plot(pblog.network, main = paste("Out-Degree Centrality"), usearrows = TRUE, vertex.cex = out.degree.centrality, edge.col = "grey50", coord = x)
+
+#plot eigenvector
+plot(pblog.network, main = paste("Eigenvector Centrality"), usearrows = TRUE, vertex.cex = eigenvector.centrality*4 + 1, edge.col = "grey50", coord = x)
+
+#plot betweenness
+plot(pblog.network, main = paste("Betweenness Centrality"), usearrows = TRUE, vertex.cex = betweenness.centrality / 2 + 1, edge.col = "grey50", coord = x)
+
+#plot closeness
+plot(pblog.network, main = paste("Closeness Centrality"), usearrows = TRUE, vertex.cex = closeness.centrality * 150 + 1, edge.col = "grey50", coord = x)
+
+```
+
+###Color Vertices According to Known Labels
+```{r, echo = TRUE, eval = TRUE}
+group.labels <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+par(mfrow = c(2,3))
+#plot original network 
+plot(pblog.network, main = "Political Blog Network", usearrows = TRUE, edge.col = "grey50", coord = x, vertex.col = group.labels)
+
+#plot in-degree
+plot(pblog.network, main = paste("In-Degree Centrality"), usearrows = TRUE, vertex.cex = in.degree.centrality, edge.col = "grey50", coord = x, vertex.col = group.labels)
+
+#plot out-degree
+plot(pblog.network, main = paste("Out-Degree Centrality"), usearrows = TRUE, vertex.cex = out.degree.centrality, edge.col = "grey50", coord = x, vertex.col = group.labels)
+
+#plot eigenvector
+plot(pblog.network, main = paste("Eigenvector Centrality"), usearrows = TRUE, vertex.cex = eigenvector.centrality*4 + 1, edge.col = "grey50", coord = x, vertex.col = group.labels)
+
+#plot betweenness
+plot(pblog.network, main = paste("Betweenness Centrality"), usearrows = TRUE, vertex.cex = betweenness.centrality / 2 + 1, edge.col = "grey50", coord = x, vertex.col = group.labels)
+
+#plot closeness
+plot(pblog.network, main = paste("Closeness Centrality"), usearrows = TRUE, vertex.cex = closeness.centrality * 150 + 1, edge.col = "grey50", coord = x, vertex.col = group.labels)
 
 ```

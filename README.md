@@ -41,6 +41,8 @@ The focus of this course will be to provide you with the basic techniques availa
 
 ### Schedule
 
+**Completed Assignments: ** [Submit](https://www.dropbox.com/request/mShmGgweXQGIhWxa1Xma)
+
 **Basics of R and Data Science** 
 
 | Topic | Reading | Practice |
