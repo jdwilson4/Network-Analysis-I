@@ -56,8 +56,8 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice |
 |:--- | :---  | :---  | 
-| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | - |
-| Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/chapter/2#bridges) | Assignment 4 |
+| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - |
+| Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 4 |
 | Where's the Network? | - | Assignment 5 |
 
 

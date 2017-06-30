@@ -155,7 +155,7 @@ pblog.edgelist <- as.matrix(pblog.data) + 1
 ### Convert Network Edge Data to 'igraph' Objects
 ```{r, echo = TRUE, eval = TRUE}
 #general igraph (defaults to directed)
-pblog.igraph <- graph.edgelist(plog.edgelist)
+pblog.igraph <- graph.edgelist(pblog.edgelist)
 #undirected igraph
 pblog.undirected.graph <- graph.edgelist(pblog.edgelist, directed = FALSE)
 #adjacency matrix from igraph object
@@ -176,17 +176,16 @@ image(Matrix(pblog.adjacency))
 ```{r, echo = TRUE, eval = TRUE}
 pblog.network <- network(pblog.edgelist)
 pblog.x <- plot(pblog.network, main = paste("Political Blog Network"), usearrows = TRUE, edge.col = "grey50")
-
 pblog.x
 ```
 
 ###Calculate In-Degree, Out-Degree, Eigenvector, Betweenness, and Closeness Centralities
 ```{r, echo = TRUE, eval = TRUE}
 #in degree centrality
-in.degree.centrality <- colSums(as.matrix(pblog.adjacency)) + 1
+in.degree.centrality <- colSums(as.matrix(pblog.adjacency))
 
 #out degree centrality
-out.degree.centrality <- rowSums(as.matrix(pblog.adjacency)) + 1
+out.degree.centrality <- rowSums(as.matrix(pblog.adjacency))
 
 #eigenvector centrality
 eigenvector.centrality <- eigen_centrality(pblog.igraph, directed = FALSE)$vector
@@ -203,22 +202,22 @@ closeness.centrality <- estimate_closeness(pblog.igraph, mode = "total", normali
 par(mfrow = c(2,3))
 
 #plot original network 
-plot(pblog.network, main = "Political Blog Network", usearrows = TRUE, edge.col = "grey50", coord = x)
+plot(pblog.network, main = "Political Blog Network", usearrows = TRUE, edge.col = "grey50", coord = pblog.x)
 
 #plot in-degree
-plot(pblog.network, main = paste("In-Degree Centrality"), usearrows = TRUE, vertex.cex = in.degree.centrality, edge.col = "grey50", coord = x)
+plot(pblog.network, main = paste("In-Degree Centrality"), usearrows = TRUE, vertex.cex = in.degree.centrality / 50, edge.col = "grey50", coord = pblog.x)
 
 #plot out-degree
-plot(pblog.network, main = paste("Out-Degree Centrality"), usearrows = TRUE, vertex.cex = out.degree.centrality, edge.col = "grey50", coord = x)
+plot(pblog.network, main = paste("Out-Degree Centrality"), usearrows = TRUE, vertex.cex = out.degree.centrality / 50, edge.col = "grey50", coord = pblog.x)
 
 #plot eigenvector
-plot(pblog.network, main = paste("Eigenvector Centrality"), usearrows = TRUE, vertex.cex = eigenvector.centrality*4 + 1, edge.col = "grey50", coord = x)
+plot(pblog.network, main = paste("Eigenvector Centrality"), usearrows = TRUE, vertex.cex = eigenvector.centrality*4 + 1, edge.col = "grey50", coord = pblog.x)
 
 #plot betweenness
-plot(pblog.network, main = paste("Betweenness Centrality"), usearrows = TRUE, vertex.cex = betweenness.centrality / 2 + 1, edge.col = "grey50", coord = x)
+plot(pblog.network, main = paste("Betweenness Centrality"), usearrows = TRUE, vertex.cex = betweenness.centrality / 2 + 1, edge.col = "grey50", coord = pblog.x)
 
 #plot closeness
-plot(pblog.network, main = paste("Closeness Centrality"), usearrows = TRUE, vertex.cex = closeness.centrality * 150 + 1, edge.col = "grey50", coord = x)
+plot(pblog.network, main = paste("Closeness Centrality"), usearrows = TRUE, vertex.cex = closeness.centrality * 150 + 1, edge.col = "grey50", coord = pblog.x)
 
 ```
 
