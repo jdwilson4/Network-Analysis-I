@@ -1,0 +1,110 @@
+---
+title: "The Basics of Networks"
+author: "James D. Wilson"
+date: "7/2/2017"
+output: html_document
+---
+
+##Important Graph Analytic Packages
+
+Two important packages that are commonly used for network analysis include `igraph` and `statnet`. Full documentation on `igraph` is available at http://igraph.org/redirect.html, including functions in the package for \texttt{Python}, \texttt{R} and \texttt{C}. 
+
+Let's begin by installing these packages.
+
+```{r, echo = TRUE, eval = TRUE}
+install.packages("statnet", repos = "https://cloud.r-project.org")
+install.packages("igraph", repos = "https://cloud.r-project.org")
+install.packages("Matrix", repos = "https://cloud.r-project.org")
+library(igraph)
+library(statnet)
+library(Matrix)
+
+```
+
+## EXAMPLE 1: Zachary's Karate Club Network
+### Download Data and Convert to Matrix
+```{r, echo = TRUE, eval = TRUE}
+#download raw edgelist
+karate.data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
+#convert data to matrix
+karate.edgelist <- matrix(unlist(karate.data), ncol = 2) + 1
+```
+
+### Convert Network Edge Data to 'igraph' Objects
+```{r, echo = TRUE, eval = TRUE}
+#general igraph (defaults to directed)
+karate.igraph <- graph.edgelist(karate.edgelist)
+#undirected igraph
+karate.undirected.graph <- graph.edgelist(karate.edgelist, directed = FALSE)
+#adjacency matrix from igraph object
+karate.adjacency <- as_adj(karate.igraph)
+
+```
+
+### Adjacency Matrix Visualization
+```{r, echo = TRUE, eval = TRUE}
+image(Matrix(karate.adjacency))
+
+```
+
+### Create network from edge list
+Try running this block a few times. What happens to the network?
+```{r, echo = TRUE, eval = TRUE}
+karate.network <- network(karate.edgelist)
+plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+
+```
+```{r, echo = TRUE, eval = TRUE}
+karate.x <- plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+```
+
+###Color Vertices According to Known Labels
+```{r, echo = TRUE, eval = TRUE}
+karate.labels <- c(1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2)
+plot(karate.network, main = "Zachary's Karate Network", usearrows = TRUE, edge.col = "grey50", coord = karate.x, vertex.col = karate.labels)
+
+
+```
+
+## EXAMPLE 2: Political Blogs Network
+### Download Data and Convert to Matrix
+```{r, echo = TRUE, eval = TRUE}
+#download raw edgelist
+pblog.data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/polblogs.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
+#convert data to matrix
+pblog.edgelist <- as.matrix(pblog.data) + 1
+```
+
+### Convert Network Edge Data to 'igraph' Objects
+```{r, echo = TRUE, eval = TRUE}
+#general igraph (defaults to directed)
+pblog.igraph <- graph.edgelist(pblog.edgelist)
+#undirected igraph
+pblog.undirected.graph <- graph.edgelist(pblog.edgelist, directed = FALSE)
+#adjacency matrix from igraph object
+pblog.adjacency <- as_adj(pblog.igraph)
+
+```
+
+### Adjacency Matrix Visualization
+```{r, echo = TRUE, eval = TRUE}
+image(Matrix(pblog.adjacency))
+
+```
+
+###Create network from edge list
+```{r, echo = TRUE, eval = TRUE}
+pblog.network <- network(pblog.edgelist)
+pblog.x <- plot(pblog.network, main = paste("Political Blog Network"), usearrows = TRUE, edge.col = "grey50", vertex.col = "yellow")
+
+```
+
+###Color Vertices According to Known Labels & Plot
+```{r, echo = TRUE, eval = TRUE}
+# original labels: 
+# [1:758] = 0 (left or liberal), blue
+# [759: 1490] = 1 (right or conservative), red
+# color labels : 0 --> 4 = blue , 1 --> 2 = red
+pblog.labels <- append(rep(4, 758), rep(2, 732), after = 758)
+plot(pblog.network, main = "Political Blog Network", usearrows = TRUE, edge.col = "grey50", coord = pblog.x, vertex.col = pblog.labels)
+```
