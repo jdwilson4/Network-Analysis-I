@@ -45,20 +45,21 @@ The focus of this course will be to provide you with the basic techniques availa
 
 **Basics of R and Data Science** 
 
-| Topic | Reading | Practice |
+| Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  |  
-|[Intro and A Brief History of Data Science](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%201%20Introduction.pdf)| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)|
-|[Basics of R and RStudio](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%202%20R%20and%20RStudio.pdf)|  [Ch. 2 and 4 of *R for Data Science*](http://r4ds.had.co.nz/index.html)|[Assignment 2](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment2.pdf)|
-|[Data Structures in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%203%20Data%20Structures.pdf)| [Ch. 20 of *R for Data Science*](http://r4ds.had.co.nz/vectors.html) | [Assignment 3](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment3.pdf)|
+|[Intro and A Brief History of Data Science](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%201%20Introduction.pdf)| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)| - |
+|[Basics of R and RStudio](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%202%20R%20and%20RStudio.pdf)|  [Ch. 2 and 4 of *R for Data Science*](http://r4ds.had.co.nz/index.html)|[Assignment 2](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment2.pdf)| [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Basics_in_R.R)|
+|[Data Structures in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%203%20Data%20Structures.pdf)| [Ch. 20 of *R for Data Science*](http://r4ds.had.co.nz/vectors.html) |  [Assignment 3](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment3.pdf)| [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Lists_Data_Frames.R) |
 
 
 **Foundations of Network Analysis: A History, Applications, and Types**
 
-| Topic | Reading | Practice |
+| Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | 
-| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - |
-| Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 4 |
-| Where's the Network? | - | Assignment 5 |
+| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - | [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Assignment3.R) |
+| Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | Assignment 4 | - |
+|Manipulating and Visualizing Network Data | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | Assignment 5 | [Here]((https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Case%20Studies/KarateClub_Centrality.Rmd)) |
+| Where's the Network? | - | Assignment 6 | - |
 
 
 
