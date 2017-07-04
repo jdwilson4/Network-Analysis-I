@@ -91,6 +91,7 @@ The focus of this course will be to provide you with the basic techniques availa
 - [Base R Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
 - [Try R by CodeSchool](http://tryr.codeschool.com/) Quick, interactive R coding lessons
 - [Swirl](http://swirlstats.com/students.html) (skip step 1 and 2 if you have already installed R and R Studio) Interactive coding lessions in R Studio
+- [SNAP Website](http://snap.stanford.edu/data/index.html) Great resource for large network data
 
 ### Case Studies
 | Case Study | Data |
@@ -112,9 +113,6 @@ The focus of this course will be to provide you with the basic techniques availa
 - [Power Grid](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/power.txt): An undirected, unweighted network representing the topology of the Western States Power Grid of the United States.
 - [Facebook Social Circles](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/facebook_combined.txt): A network of anonymized social circles from Facebook. 
 - [Enron Email Network](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/email-Enron.txt): Enron email communication network where nodes are email addresses and edges are emails sent from *i* to *j*. 
-- [Personal Facebook Network]() 
-- [Political Co-Voting Network]()
-
 
 ### Important Dates
 
