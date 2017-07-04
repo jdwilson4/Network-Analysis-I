@@ -58,8 +58,8 @@ The focus of this course will be to provide you with the basic techniques availa
 |:--- | :---  | :---  | :---- |
 | [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - | [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Assignment3.R) |
 | Network Types |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
-|[Manipulating and Visualizing Network Data](https://static1.squarespace.com/static/5672e813bfe8739f7afa013a/t/595be67c46c3c48b86756cb2/1499195017846/Statistical%2BAnalysis%2Bof%2BNetwork%2BData%2Bwit.pdf) | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | Assignment 4 | [Here]((https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Case%20Studies/KarateClub_Centrality.Rmd)) |
-| Where's the Network? | - | Assignment 6 | - |
+|[Manipulating and Visualizing Network Data](http://jdwilson-statistics.com/statistical-network-analysis-with-r/) | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | Assignment 4 | [Here]((https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Case%20Studies/KarateClub_Centrality.Rmd)) |
+| Where's the Network? | - | Assignment 5 | - |
 
 
 
