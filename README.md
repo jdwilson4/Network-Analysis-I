@@ -48,8 +48,8 @@ The focus of this course will be to provide you with the basic techniques availa
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  |  :--- |
 |[Intro and A Brief History of Data Science](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%201%20Introduction.pdf)| [Ch. 1 of *Doing Data Science*](https://www.safaribooksonline.com/library/view/doing-data-science/9781449363871/ch01.html) |[Assignment 1](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment1.pdf)| - |
-|[Basics of R and RStudio](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%202%20R%20and%20RStudio.pdf)|  [Ch. 2 and 4 of *R for Data Science*](http://r4ds.had.co.nz/index.html)|[Assignment 2](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment2.pdf)| [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Basics_in_R.R)|
-|[Data Structures in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%203%20Data%20Structures.pdf)| [Ch. 20 of *R for Data Science*](http://r4ds.had.co.nz/vectors.html) |  [Assignment 3](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment3.pdf)| [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Lists_Data_Frames.R) |
+|[Basics of R and RStudio](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%202%20R%20and%20RStudio.pdf)|  [Ch. 2 and 4 of *R for Data Science*](http://r4ds.had.co.nz/index.html)|[Assignment 2](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment2.pdf)| [Coding Basics](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Basics_in_R.R)|
+|[Data Structures in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%203%20Data%20Structures.pdf)| [Ch. 20 of *R for Data Science*](http://r4ds.had.co.nz/vectors.html) |  [Assignment 3](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment3.pdf)| [Lists and Data Frames](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Lists_Data_Frames.R) |
 
 
 **Foundations of Network Analysis: A History, Applications, and Types**
@@ -58,8 +58,8 @@ The focus of this course will be to provide you with the basic techniques availa
 |:--- | :---  | :---  | :---- |
 | [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - | [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Assignment3.R) |
 | [Network Types](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Network_Types.pdf) |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
-|[Manipulating and Visualizing Network Data](http://jdwilson-statistics.com/statistical-network-analysis-with-r/) | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | - | [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Basics.Rmd) |
-| Where's the Network? | - | - | - |
+|[Manipulating and Visualizing Network Data](http://jdwilson-statistics.com/statistical-network-analysis-with-r/) | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | - | [igraph analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Network_Visualization.R) [statnet analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Basics.Rmd)|
+| [Where's the Network?](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Where_is_the_network.pdf) | - | [Assignment 4](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment4.pdf)| [Association and GG Models](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Where_is_the_network.R) |
 
 
 
@@ -93,16 +93,17 @@ The focus of this course will be to provide you with the basic techniques availa
 - [Swirl](http://swirlstats.com/students.html) (skip step 1 and 2 if you have already installed R and R Studio) Interactive coding lessions in R Studio
 - [SNAP Website](http://snap.stanford.edu/data/index.html) Great resource for large network data
 
-### Case Studies
+### Good Reading Material
+<!-- ### Case Studies
 | Case Study | Data |
-|:---| :---  | 
-|[I: The Basics - Input, Network Representations, and Visualization](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Basics.Rmd) | [Zachary's Karate Club](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt), [Political Blogs](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt) | 
+|:-| :-  |
+|[I: The Basics - Input, Network Representations, and Visualization](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Basics.Rmd) | [Zachary's Karate Club](https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt), [Political Blogs](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Data/polblogs.txt) |
 |[II: Network Motifs I - paths, shortest paths and connected components]() | []() |
 |[III: Network Motifs II - graph counts]() | []() |
-|[IV: Structural Importance]()| []()| 
+|[IV: Structural Importance]()| []()|
 |[V: Community Detection]() | []() |
 |[VI: Epidemics on Networks - SIR, SIS, and Cascades]() | []() |
-|[VII: Temporal Networks - Structures over Time]() | []() |
+|[VII: Temporal Networks - Structures over Time]() | []() | -->
 
 
 
