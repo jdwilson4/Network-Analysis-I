@@ -67,8 +67,8 @@ The focus of this course will be to provide you with the basic techniques availa
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :--- |
 | Paths, Shortest Paths, and Connected Components | - | - | - |
-| Degree Distribution and Empirical Studies | - | - | - |
-| Graph Counts | - | - | - |
+| Degree Distribution and Graph Counts | - | - | - |
+| Empirical Network Models | - | - | - |
 | Structural Importance: Vertex Centrality | - | - | - |
 | Community Detection | - | - | - |
 
