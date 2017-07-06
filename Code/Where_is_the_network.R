@@ -1,5 +1,6 @@
 library(igraph)
-
+#---------------------------------------------
+#Part I - Fitting a correlation association model to the E.coli data
 #load the E.coli data
 data(Ecoli.data)
 
@@ -56,3 +57,32 @@ image(Matrix(e.coli.adjacency))
 #note - this graph is quite dense. Should investigate a sparser representation
 
 
+#---------------------------------------------
+#Part II - Fitting a Gaussian graphical model to the E.coli data
+install.packages("huge")
+library(huge)
+
+#create a huge object for analysis from the observed data matrix
+#this is fitting the Gaussian graphical model to this data
+huge.out <- huge(Ecoli.expr)
+
+#Now, we need to select which partial correlation values are 
+#statistical significant. There are two primary ways of doing this
+#The first is known to be prone to under-selection. This is seen
+#in the empty graph formed using the "ric" criterion below
+
+huge.opt1 <- huge.select(huge.out, criterion = "ric")
+summary(huge.opt1$refit)
+
+#This second method is known to select a moderate number of edges
+#this is based on subsampling for variance stabilization
+huge.opt2 <- huge.select(huge.out, criterion = "stars")
+summary(huge.opt2$refit)
+
+#Create a graph object and plot the result
+GGM.graph <- graph.adjacency(huge.opt2$refit, mode = "undirected")
+summary(GGM.graph) #153 nodes and 759 edges
+
+igraph.options(vertex.size=3, vertex.label=NA,
+               edge.arrow.size=0.5)
+plot(GGM.graph, layout = layout.kamada.kawai)
