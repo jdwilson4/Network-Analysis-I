@@ -33,10 +33,9 @@ The focus of this course will be to provide you with the basic techniques availa
 - Topological Summaries of Networks
 - Shortest Paths
 - Automatic Feature Learning of Graphs
-- Mesoscopic Properties of Graphs
 - Community Detection
 - Epidemics on Networks
-- Intro to Statistical Network Modeling
+- Intro to Statistical Network Modeling (if time permits)
 
 
 ### Schedule
@@ -56,36 +55,39 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :---- |
-| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - | [Here](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Assignment3.R) |
+| [History of Network Analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%204%20History%20of%20Network%20Analysis.pdf) | [Ch 2.1 - 2.2 of Network Science](http://barabasi.com/networksciencebook/) | - | [Assignment 3 Solution](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Assignment3.R) |
 | [Network Types](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Network_Types.pdf) |[Ch 2.4 - 2.7 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
-|[Manipulating and Visualizing Network Data](http://jdwilson-statistics.com/statistical-network-analysis-with-r/) | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | - | [igraph analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Network_Visualization.R) [statnet analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Basics.Rmd)|
-| [Where's the Network?](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Where_is_the_network.pdf) | - | [Assignment 4](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment4.pdf)| [Association and GG Models](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Where_is_the_network.R) |
+|[Manipulating and Visualizing Network Data](http://jdwilson-statistics.com/statistical-network-analysis-with-r/) | [Ch 2 and 3 of SAND with R](https://github.com/kolaczyk/sand) | - | [[igraph]](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Network_Visualization.R) [[statnet analysis](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Basics.Rmd)|
+| [Where's the Network?](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Where_is_the_network.pdf) | - | [Assignment 4](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment4.pdf)| [Fitting Network Models](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Where_is_the_network.R) |
 
 
 
 **Network Statistics: Local and Global Summaries**
 
-| Topic | Reading | Practice |
-|:--- | :---  | :---  | 
-| Paths, Shortest Paths, and Connected Components | - | - |
-| Degree Distribution and Empirical Studies | - | - |
-| Graph Counts | - | - |
-| Structural Importance: Vertex Centrality | - | - |
+| Topic | Reading | Practice | In-Class Code |
+|:--- | :---  | :---  | :--- |
+| Paths, Shortest Paths, and Connected Components | - | - | - |
+| Degree Distribution and Empirical Studies | - | - | - |
+| Graph Counts | - | - | - |
+| Structural Importance: Vertex Centrality | - | - | - |
+| Community Detection | - | - | - |
 
-**Mesoscopic Properties of Networks**
+<!-- **Mesoscopic Properties of Networks**
 
 | Topic | Reading | Practice |
-|:--- | :---  | :---  | 
+|:- | :-  | :-  |  -->
 
 **Dynamics on Networks**
 
-| Topic | Reading | Practice |
-|:--- | :---  | :---  | 
+| Topic | Reading | Practice | In-Class Code |
+|:--- | :---  | :---  | :--- |
+| Epidemic Models: SIS, SIR | - | - | - |
+| Independent Cascade Model | - | - | - |
+| Linear Threshold Models | - | - | - |
+<!-- **Multilayer and Temporal Networks**
 
-**Multilayer and Temporal Networks**
-
 | Topic | Reading | Practice |
-|:--- | :---  | :---  | 
+|:- | :-  | :-  |  -->
 
 ### Additional Resources
 - [Base R Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
