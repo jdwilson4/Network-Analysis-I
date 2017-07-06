@@ -67,7 +67,7 @@ The focus of this course will be to provide you with the basic techniques availa
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :--- |
 | Paths, Shortest Paths, and Connected Components | - | - | - |
-| Degree Distribution and Graph Counts | - | - | - |
+| Degree Distribution and Graph Counts | - | - | [Network Characteristics](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Descriptive_Network_Characteristics.R) |
 | Empirical Network Models | - | - | - |
 | Structural Importance: Vertex Centrality | - | - | - |
 | Community Detection | - | - | - |
