@@ -319,62 +319,94 @@ plot(g.tree, layout=layout.reingold.tilford) #places root node at the top of the
 
 # CHUNK 7
 #plotting a bipartite graph
-par(mfrow = c(1,1))
+par(mfrow = c(1,1)) #setting the layout to only have one graph again
+#the layout.bipartite layout will stack nodes according to specified type
 plot(g.bip, layout=-layout.bipartite(g.bip)[,2:1], 
      vertex.size=30, vertex.shape=ifelse(V(g.bip)$type, 
                                          "rectangle", "circle"),
      vertex.color=ifelse(V(g.bip)$type, "red", "cyan"))
 
-# CHUNK 8
+
+#--------------------------
+#Example 1: Plotting the Karate club data set
 library(igraphdata)
-data(karate)
+library(igraph)
+data(karate) #pre-loaded data already in R
+
 # Reproducible layout
 set.seed(42)
 l <- layout.kamada.kawai(karate)
-# Plot undecorated first.
+# Plot undecorated simple graph first.
 par(mfrow=c(1,1))
 plot(karate, layout=l, vertex.label=NA)
-# Now decorate, starting with labels.
+
+##Decorating the Graph
+# Give labels to vertices according to their names
 V(karate)$label <- sub("Actor ", "", V(karate)$name)
-# Two leaders get shapes different from club members.
+
+# Give leaders of each faction a rectangle shape and all others circles
 V(karate)$shape <- "circle"
 V(karate)[c("Mr Hi", "John A")]$shape <- "rectangle"
+
+
 # Differentiate two factions by color.
 V(karate)[Faction == 1]$color <- "red"
 V(karate)[Faction == 2]$color <- "dodgerblue"
+
 # Vertex area proportional to vertex strength
 # (i.e., total weight of incident edges).
+# Note - you can play around with this to make the visual up to your 
+# tastes
 V(karate)$size <- 4*sqrt(graph.strength(karate))
 V(karate)$size2 <- V(karate)$size * .5
+
 # Weight edges by number of common activities
 E(karate)$width <- E(karate)$weight
+
+
 # Color edges by within/between faction.
+#Identify the vertices in each faction (F1 for Faction 1)
 F1 <- V(karate)[Faction==1]
 F2 <- V(karate)[Faction==2]
-E(karate)[ F1 %--% F1 ]$color <- "pink"
-E(karate)[ F2 %--% F2 ]$color <- "lightblue"
-E(karate)[ F1 %--% F2 ]$color <- "yellow"
+
+E(karate)[ F1 %--% F1 ]$color <- "pink" #pink edges for F1 to F1
+E(karate)[ F2 %--% F2 ]$color <- "lightblue" #lightblue edges for F2 to F2
+E(karate)[ F1 %--% F2 ]$color <- "yellow" #yellow edges for F1 to F2
+
 # Offset vertex labels for smaller points (default=0).
 V(karate)$label.dist <- 
   ifelse(V(karate)$size >= 10, 0, 0.75)
+
 # Plot decorated graph, using same layout.
 plot(karate, layout=l)
 
-# CHUNK 9
-library(sand)
-data(lazega)
-# Office location indicated by color.
+#--------------------------
+#Example 2: Plotting the lazega lawyer data set
+#library(sand)
+data(lazega) #again, load pre-loaded data
+
+# Color nodes according to office location
 colbar <- c("red", "dodgerblue", "goldenrod")
 v.colors <- colbar[V(lazega)$Office]
-# Type of practice indicated by vertex shape.
+
+# Specify shape of nodes according to the type of practice 
 v.shapes <- c("circle", "square")[V(lazega)$Practice]
-# Vertex size proportional to years with firm.
+
+
+# Set vertex size proportional to years with firm.
 v.size <- 3.5*sqrt(V(lazega)$Years)
+
+#Now plot
 set.seed(42)
-l <- layout.fruchterman.reingold(lazega)
-plot(lazega, layout=l, vertex.color=v.colors,
+l <- layout.fruchterman.reingold(lazega) #force-directed layout that will
+#illustrate community structure
+plot(lazega, layout = l, vertex.color=v.colors,
      vertex.shape=v.shapes, vertex.size=v.size)
 
+
+#-----------------------------------------
+#Code for Section 3.5 (can rely on this for Assignment 4, but be sure
+#to comment these lines to specify what each line is doing!)
 # CHUNK 10
 library(sand)
 summary(fblog)
@@ -439,5 +471,87 @@ plot(k.1, vertex.label=NA,
      vertex.color=c("red", rep("lightblue", 16)))
 plot(k.34, vertex.label=NA,
      vertex.color=c(rep("lightblue", 17), "red"))
+
+
+
+#----------------------------------
+#Brief Intro into statnet package
+
+install.packages("statnet")
+library(statnet)
+
+karate.data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/karate.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
+#convert data to matrix
+karate.edgelist <- matrix(unlist(karate.data), ncol = 2) + 1
+
+
+#general igraph (defaults to directed)
+karate.igraph <- graph.edgelist(karate.edgelist)
+#undirected igraph
+karate.undirected.graph <- graph.edgelist(karate.edgelist, directed = FALSE)
+
+#adjacency matrix from igraph object
+karate.adjacency <- as_adj(karate.igraph)
+
+karate.network <- network(karate.edgelist)
+plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+
+#show that the visualization is itself random
+par(mfrow = c(1, 3))
+plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+
+
+#store the coordinate for a plot (to keep the same layout)
+karate.x <- plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50")
+
+###Color Vertices According to Known Labels
+
+karate.labels <- c(1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2)
+
+#plotting the "decorated" version beside the original
+par(mfrow = c(1,2))
+plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50", coord = karate.x)
+
+plot(karate.network, main = "Zachary's Karate Network", usearrows = TRUE, edge.col = "grey50", coord = karate.x, vertex.col = karate.labels)
+
+
+
+#----- Example of statnet with political blogs network
+#download raw edgelist
+pblog.data <- read.table("https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/polblogs.txt", sep = " ", header = TRUE, stringsAsFactors = FALSE)
+#convert data to matrix
+pblog.edgelist <- as.matrix(pblog.data) + 1
+
+#Convert Network Edge Data to 'igraph' Objects
+
+#general igraph (defaults to directed)
+pblog.igraph <- graph.edgelist(pblog.edgelist)
+#undirected igraph
+pblog.undirected.graph <- graph.edgelist(pblog.edgelist, directed = FALSE)
+#adjacency matrix from igraph object
+pblog.adjacency <- as_adj(pblog.igraph)
+
+#Adjacency Matrix Visualization
+library(Matrix)
+image(pblog.adjacency) #you can see this on your own computer, I promise
+
+###Create network from edge list
+
+pblog.network <- network(pblog.edgelist)
+pblog.x <- plot(pblog.network, main = paste("Political Blog Network"), usearrows = TRUE, edge.col = "grey50", vertex.col = "yellow")
+
+###Color Vertices According to Known Labels & Plot
+
+# original labels: 
+# [1:758] = 0 (left or liberal), blue
+# [759: 1490] = 1 (right or conservative), red
+# color labels : 0 --> 4 = blue , 1 --> 2 = red
+pblog.labels <- append(rep(4, 758), rep(2, 732), after = 758)
+
+#color the labels according to political party
+plot(pblog.network, main = "Political Blog Network", usearrows = TRUE, edge.col = "grey50", coord = pblog.x, vertex.col = pblog.labels)
+
 
 
