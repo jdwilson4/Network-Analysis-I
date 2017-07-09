@@ -66,7 +66,6 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :--- |
-<<<<<<< HEAD
 | Paths, Shortest Paths, and Connected Components | [Ch. 2.8 - 2.9 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
 | Degree Distribution and Graph Counts | [Ch. 4.1 - 4.3 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
 | Structural Importance: Vertex Centrality | [Centrality in Social Networks](http://www.analytictech.com/borgatti/papers/centflow.pdf) | - | - |
@@ -78,7 +77,6 @@ The focus of this course will be to provide you with the basic techniques availa
 | Empirical Network Models | - | - | - |
 | Structural Importance: Vertex Centrality | - | - | - |
 | Community Detection | - | - | - |
->>>>>>> ab0ec4a62a8aa198bbbebd876ab8306243067052
 
 <!-- **Mesoscopic Properties of Networks**
 
