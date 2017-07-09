@@ -51,7 +51,7 @@ The focus of this course will be to provide you with the basic techniques availa
 |[Data Structures in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Lecture%203%20Data%20Structures.pdf)| [Ch. 20 of *R for Data Science*](http://r4ds.had.co.nz/vectors.html) |  [Assignment 3](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Assignments/Assignment3.pdf)| [Lists and Data Frames](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Lists_Data_Frames.R) |
 
 
-**Foundations of Network Analysis: A History, Applications, and Types**
+**Foundations of Network Analysis: A History, Applications, and Construction*
 
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :---- |
@@ -62,15 +62,15 @@ The focus of this course will be to provide you with the basic techniques availa
 
 
 
-**Network Statistics: Local and Global Summaries**
+**Network Descriptions: Local and Global Summaries**
 
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :--- |
-| Paths, Shortest Paths, and Connected Components | - | - | - |
-| Degree Distribution and Graph Counts | - | - | - |
-| Empirical Network Models | - | - | - |
-| Structural Importance: Vertex Centrality | - | - | - |
-| Community Detection | - | - | - |
+| Paths, Shortest Paths, and Connected Components | [Ch. 2.8 - 2.9 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
+| Degree Distribution and Graph Counts | [Ch. 4.1 - 4.3 of Network Science](http://barabasi.com/networksciencebook/) | - | - |
+| Structural Importance: Vertex Centrality | [Centrality in Social Networks](http://www.analytictech.com/borgatti/papers/centflow.pdf) | - | - |
+| Community Detection | [[Review Paper]](https://arxiv.org/pdf/0906.0612.pdf) [[Applications]](https://arxiv.org/pdf/1705.02305.pdf)| - | - |
+| Empirical Network Models |  | - | - |
 
 <!-- **Mesoscopic Properties of Networks**
 
