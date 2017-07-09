@@ -1,4 +1,5 @@
 library(igraph)
+library(sand)
 #---------------------------------------------
 #Part I - Fitting a correlation association model to the E.coli data
 #load the E.coli data
@@ -44,6 +45,8 @@ e.coli.adjacency[upper.tri(e.coli.adjacency)] <- corr.pvals.adjusted < 0.01
 #now fill in the lower triangle by taking the transpose
 e.coli.adjacency <- e.coli.adjacency + t(e.coli.adjacency)
 
+#look at the adjacency matrix
+image(Matrix(e.coli.adjacency))
 #convert this into an igraph object 
 e.coli.graph <- graph.adjacency(e.coli.adjacency, mode = "undirected")
 
@@ -52,8 +55,6 @@ igraph.options(vertex.size=3, vertex.label=NA,
                edge.arrow.size=0.5)
 plot(e.coli.graph, layout = layout.kamada.kawai)
 
-#matrix image
-image(Matrix(e.coli.adjacency))
 #note - this graph is quite dense. Should investigate a sparser representation
 
 
