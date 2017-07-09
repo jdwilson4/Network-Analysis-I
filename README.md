@@ -66,7 +66,7 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :--- |
-| Paths, Shortest Paths, and Connected Components | [Ch. 2.8 - 2.9 of Network Science](http://barabasi.com/networksciencebook/) | - | [Algorithm Demonstrations](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Shortest_Path_Demonstrations.pdf) |
+| [Paths, Shortest Paths, and Connected Components](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Paths.pdf) | [Ch. 2.8 - 2.9 of Network Science](http://barabasi.com/networksciencebook/) | - | [Algorithm Demonstrations](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Shortest_Path_Demonstrations.pdf) |
 | Degree Distribution and Graph Counts | [Ch. 4.1 - 4.3 of Network Science](http://barabasi.com/networksciencebook/) | - | [Network Summaries](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Descriptive_Network_Characteristics.R) |
 | Structural Importance: Vertex Centrality | [Centrality in Social Networks](http://www.analytictech.com/borgatti/papers/centflow.pdf) | - | - |
 | Community Detection | [[Review Paper]](https://arxiv.org/pdf/0906.0612.pdf) [[Applications]](https://arxiv.org/pdf/1705.02305.pdf)| - | - |
