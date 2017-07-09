@@ -95,7 +95,7 @@ The focus of this course will be to provide you with the basic techniques availa
 - [Swirl](http://swirlstats.com/students.html) (skip step 1 and 2 if you have already installed R and R Studio) Interactive coding lessions in R Studio
 - [SNAP Website](http://snap.stanford.edu/data/index.html) Great resource for large network data
 
-### Good Reading Material
+<!-- ### Good Reading Material -->
 <!-- ### Case Studies
 | Case Study | Data |
 |:-| :-  |
