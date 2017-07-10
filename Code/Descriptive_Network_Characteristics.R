@@ -5,10 +5,12 @@
 # CHUNK 1
 library(sand)
 data(karate)
+# plot degree distribution
 hist(degree(karate), col="lightblue", xlim=c(0,50),
      xlab="Vertex Degree", ylab="Frequency", main="")
 
 # CHUNK 2
+# plot vertex strength distribution
 hist(graph.strength(karate), col="pink",
      xlab="Vertex Strength", ylab="Frequency", main="")
 
@@ -38,6 +40,7 @@ hist(d.yeast,col="blue",
 dd.yeast <- degree.distribution(yeast)
 d <- 1:max(d.yeast)-1
 ind <- (dd.yeast != 0)
+dd.yeast
 plot(d[ind], dd.yeast[ind], log="xy", col="blue",
      xlab=c("Log-Degree"), ylab=c("Log-Intensity"),
      main="Log-Log Degree Distribution")
@@ -247,6 +250,25 @@ table(aidsblog.scc$csize)
 ##   1   4 
 ## 142   1
 # ---
+
+
+# ---- PATH EXAMPLES ----
+# BFS example: extract subnetwork 2 or less away from source node 
+bfs.karate <- bfs(karate, root=34, "out", order=TRUE, rank=TRUE, dist=TRUE)
+filtered.dist <- subset(bfs.karate$dist, bfs.karate$dist <= 2)
+sub.karate <- induced.subgraph(karate, names(filtered.dist))
+plot(sub.karate)
+
+# DFS example: 
+dfs.karate <- dfs(karate, root=1)
+karate.order <- dfs.karate$order
+karate.order.out <- dfs.karate$order.out
+
+# DIJKSTRA'S - using each as source node. 
+dij.karate <- distances(karate, mode="out", algorithm = "dijkstra")
+# get network diameter - max of shortest path distances
+max(dij.karate)
+
 
 # ---- SECTION 4.4 : GRAPH PARTITIONING ---- 
 
