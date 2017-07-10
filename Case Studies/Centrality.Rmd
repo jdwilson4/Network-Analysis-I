@@ -158,6 +158,7 @@ image(Matrix(pblog.adjacency))
 
 ---
 
+
 ##Network Centrality Measures and Visualization
 ###Create network from edge list
 ```{r, echo = TRUE, eval = TRUE}
