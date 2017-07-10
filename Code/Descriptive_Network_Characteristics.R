@@ -252,24 +252,6 @@ table(aidsblog.scc$csize)
 # ---
 
 
-# ---- PATH EXAMPLES ----
-# BFS example: extract subnetwork 2 or less away from source node 
-bfs.karate <- bfs(karate, root=34, "out", order=TRUE, rank=TRUE, dist=TRUE)
-filtered.dist <- subset(bfs.karate$dist, bfs.karate$dist <= 2)
-sub.karate <- induced.subgraph(karate, names(filtered.dist))
-plot(sub.karate)
-
-# DFS example: 
-dfs.karate <- dfs(karate, root=1)
-karate.order <- dfs.karate$order
-karate.order.out <- dfs.karate$order.out
-
-# DIJKSTRA'S - using each as source node. 
-dij.karate <- distances(karate, mode="out", algorithm = "dijkstra")
-# get network diameter - max of shortest path distances
-max(dij.karate)
-
-
 # ---- SECTION 4.4 : GRAPH PARTITIONING ---- 
 
 # CHUNK 33
