@@ -10,6 +10,7 @@ data(Ecoli.data)
 
 heatmap(scale(Ecoli.expr), Rowv = NA)
 
+normalized.data <- scale(Ecoli.expr)
 #the above heatmap orders the columns (genes) according to hierarchical 
 #clustering and reveals relationships among the genes.
 
@@ -62,6 +63,10 @@ plot(e.coli.graph, layout = layout.kamada.kawai)
 #Part II - Fitting a Gaussian graphical model to the E.coli data
 install.packages("huge")
 library(huge)
+normalized.data <- scale(Ecoli.expr)
+
+#check assumptions of normality for each column
+hist(normalized.data[, 1], n = 50) #histogram of 1st column
 
 #create a huge object for analysis from the observed data matrix
 #this is fitting the Gaussian graphical model to this data
