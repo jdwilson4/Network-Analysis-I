@@ -70,7 +70,7 @@ The focus of this course will be to provide you with the basic techniques availa
 | [Degree Distribution and Graph Counts](http://tuvalu.santafe.edu/~aaronc/courses/5352/csci5352_2016_L1.pdf) | [[Ch. 2.3 of Network Science]](http://barabasi.com/networksciencebook/) [[Ch. 4.1 - 4.3 of SAND]](http://jdwilson-statistics.com/statistical-network-analysis-with-r/) | - | [Network Summaries](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Descriptive_Network_Characteristics.R) |
 | [Community Detection](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Community_Detection.pdf) | [[Review Paper]](https://arxiv.org/pdf/0906.0612.pdf) [[Applications]](https://arxiv.org/pdf/1705.02305.pdf)| - | - |
 | [Structural Importance: Vertex Centrality](http://tuvalu.santafe.edu/~aaronc/courses/5352/csci5352_2016_L2.pdf) | [Centrality in Social Networks](http://www.analytictech.com/borgatti/papers/centflow.pdf) | - | [Centrality Examples](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Centrality.Rmd)|
-| Case Study: Piecing it all together in R| - | - | - |
+| Case Study: Descriptive Analysis in R| - | - | - |
 <!-- | Empirical Network Models |  | - | - | -->
 
 <!-- **Mesoscopic Properties of Networks**
