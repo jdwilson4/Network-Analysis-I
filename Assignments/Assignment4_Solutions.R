@@ -17,7 +17,7 @@ library(Matrix)
 
 # Question 2 
 # -------------------------------------------------------------------------
-# SCORE : 10/10
+# SCORE : -- /10
 #   (a) 2/2pts - vertex & edge representations
 #   (b) 2/2pt - vertex & edge counts
 #   (c) 1/1pt - weighted?
@@ -58,7 +58,7 @@ is_directed(g)
 
 # Question 3
 # -------------------------------------------------------------------------
-# SCORE : 20/20
+# SCORE : -- /20
 # tasks: 
 #   (a) 6/6pts - create 3 induced subgraphs 
 #   (b) 9/9pts - visualize subgraphs using different layouts
@@ -98,7 +98,7 @@ plot(sub.g3, layout = layout.fruchterman.reingold)
 
 # Question 4
 # -------------------------------------------------------------------------
-# SCORE : 10/10
+# SCORE : -- /10
 # -------------------------------------------------------------------------
 
 # No, it does not affect the global structural properties since we are
@@ -108,16 +108,14 @@ plot(sub.g3, layout = layout.fruchterman.reingold)
 
 # Question 5
 # -------------------------------------------------------------------------
-# SCORE : 10/10
-# COMMENTS: 
-#   
+# SCORE : -- /10
 # -------------------------------------------------------------------------
 
 # Expect block structure along diagonal of heatmap/adjacency matrix. 
 
 # Question 6
 # -------------------------------------------------------------------------
-# SCORE : 25/25
+# SCORE : -- /25
 #  - ASSOCIATION GRAPH - 
 #   (a) 5/5pts - adj matrix
 #   (b) 2/2pts  - network
@@ -132,9 +130,6 @@ plot(sub.g3, layout = layout.fruchterman.reingold)
 # 
 #   - SIMILARITIES/DIFFERENCES BETWEEN MODELS -
 #       5/5pts
-#
-# COMMENTS:
-#   
 # -------------------------------------------------------------------------
 library(datasets)
 data("iris")
