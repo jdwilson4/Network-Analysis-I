@@ -2,17 +2,27 @@
 
 ###--------------------------------------------
 ##Part 1: Calculating Shortest Paths##
+library(igraph)
 library(sand)
 data(karate)
 
 
 # BFS example: extract subnetwork 2 or less away from source node 
+
+#this is a lot like "snow-ball sampling" where we take measurements on 
+#nodes / actors that are 2 "hops" away from a source.
 bfs.karate <- bfs(karate, root=34, "out", order=TRUE, rank=TRUE, dist=TRUE)
 filtered.dist <- subset(bfs.karate$dist, bfs.karate$dist <= 2)
 sub.karate <- induced.subgraph(karate, names(filtered.dist))
-plot(sub.karate)
+
+#plot the original graph and this induced subgraph side by side
+par(mfrow = c(1, 2))
+plot(karate, main = "Original Karate Club graph")
+plot(sub.karate, main = "Induced Subgraph")
 
 # DFS example: get a topological ordering of nodes - furthest to closest
+# Here, we are calculating how far away each node is from the root node (node = 1)
+# And then ordering according to these distances (highest to smallest)
 dfs.karate <- dfs(karate, root=1, order.out=TRUE)
 karate.order.out <- dfs.karate$order.out
 karate.order.out
@@ -21,40 +31,57 @@ karate.order.out
 mst.karate <- mst(karate, algorithm="unweighted")
 # minimum spanning tree if num of edges == num of vertices - 1
 ecount(mst.karate) == vcount(karate) - 1
+
+par(mfrow = c(1,2))
+#x <- plot(karate) #get the coordinates of each node in original  graph
+plot(karate)
 plot(mst.karate)
 
 # DIJKSTRA'S - obtain shortest path for each node as source
+# Calculates the pairwise shortest path for each pair of nodes
 karate.shortest.dist <- distances(karate, mode="out", algorithm = "dijkstra")
-# get network diameter - max of shortest path distances excluding infinite paths
-max( karate.shortest.dist[ which(karate.shortest.dist < Inf) ] )
 
+#Is the karate club network connected?
+
+#Method 1 - calculate the maximum shortest distance. If infinite, then no
+max(as.numeric(karate.shortest.dist)) #13 so yes!
+
+#Method 2 - directly use is.connected
+is.connected(karate) #TRUE
+
+# get network diameter - max of shortest path distances excluding infinite paths
+#Method 1 - calculate it from the distances matrix
+max( karate.shortest.dist[ which(karate.shortest.dist < Inf)])
+
+#Method 2 - use the function diameter()
+diameter(karate)
 
 ###--------------------------------------------
 ##Part 2: Graph Counts
-# CHUNK 3
 library(igraphdata)
 data(yeast)
 
-# CHUNK 4
+#Count the total number of edges
 ecount(yeast)
-# ---
-## [1] 11855
-# ---
 
-# CHUNK 5
+
+#Count the total number of nodes
 vcount(yeast)
-# ---
-## [1] 2617
-# ---
 
-# CHUNK 6
-d.yeast <- degree(yeast)
+
+#Calculate the degree of the yeast network
+d.yeast <- degree(yeast) #this is the degree sequence
 hist(d.yeast,col="blue",
      xlab="Degree", ylab="Frequency",
      main="Degree Distribution")
 
-# CHUNK 7
-dd.yeast <- degree.distribution(yeast)
+#This histogram is in fact very common to social and biological networks - the 
+# degree distribution follows a power law (i.e. the Pareto distribution). This is
+# a common feature of what are known as "Scale - free graphs"
+
+#Plot the log-log plot (to check for a straight line - which suggests
+# the scale-free nature of the graph)
+dd.yeast <- degree.distribution(yeast) #this is the proportion of each observed degree
 d <- 1:max(d.yeast)-1
 ind <- (dd.yeast != 0)
 dd.yeast
@@ -62,32 +89,11 @@ plot(d[ind], dd.yeast[ind], log="xy", col="blue",
      xlab=c("Log-Degree"), ylab=c("Log-Intensity"),
      main="Log-Log Degree Distribution")
 
-# CHUNK 8
-a.nn.deg.yeast <- graph.knn(yeast,V(yeast))$knn
-plot(d.yeast, a.nn.deg.yeast, log="xy", 
-     col="goldenrod", xlab=c("Log Vertex Degree"),
-     ylab=c("Log Average Neighbor Degree"))
 
-# CHUNK 9
-A <- get.adjacency(karate, sparse=FALSE)
-library(network)
-g <- network::as.network.matrix(A)
-library(sna)
-sna::gplot.target(g, degree(g), main="Degree",
-                  circ.lab = FALSE, circ.col="skyblue",
-                  usearrows = FALSE,
-                  vertex.col=c("blue", rep("red", 32), "yellow"),
-                  edge.col="darkgray")
-
-# CHUNK 10
-l <- layout.kamada.kawai(aidsblog)
-plot(aidsblog, layout=l, main="Hubs", vertex.label="",
-     vertex.size=10 * sqrt(hub.score(aidsblog)$vector))
-plot(aidsblog, layout=l, main="Authorities", 
-     vertex.label="", vertex.size=10 * 
-       sqrt(authority.score(aidsblog)$vector))
-
-# CHUNK 11
+##----------------------------
+#Skipping this part, but it's about calculating cores, etc. Use later if you'd like
+############################
+#Calculating betweenness
 eb <- edge.betweenness(karate)
 E(karate)[order(eb, decreasing=T)[1:3]]
 # ---
@@ -154,81 +160,81 @@ dyad.census(aidsblog)
 ## [1] 10405
 # ---
 
-# CHUNK 18
+
+##----------------------------
+##Starting back here!
+
+##################################
+
+#An ego network is nothing but the neighborhood of a given "ego" / node
+
+#Ego network of the main instructor (node 1)
 ego.instr <- induced.subgraph(karate,
                               neighborhood(karate, 1, 1)[[1]])
+
+#Ego network of the leaaders of the two factions (nodes 1 and 34)
 ego.admin <- induced.subgraph(karate,
                               neighborhood(karate, 1, 34)[[1]])
+
+#calculating the graph density (number of edges / number of possible edges)
 graph.density(karate)
-# ---
-## [1] 0.1390374
-# ---
+
 graph.density(ego.instr)
-# ---
-## [1] 0.25
-# ---
+
 graph.density(ego.admin)
-# ---
-## [1] 0.2091503
-# ---
 
-# CHUNK 19
+#Calculating global transitivity / clustering coefficient (normalized to be between 0 and 1)
 transitivity(karate)
-# ---
-## [1] 0.2556818
-# ---
 
-# CHUNK 20
+#Calculating local transitivity for the two adminstrators of the two factions
+#(nodes 1 and 34)
 transitivity(karate, "local", vids=c(1,34))
-# ---
-## [1] 0.1500000 0.1102941
-# ---
 
-# CHUNK 21
+#Calculate the local transitivity for all nodes
+transitivity(karate, "local", vids = V(karate))
+#the NaN here reflects the fact that the node only has degree = 1 (and thus 
+# cannot have a closed triangle... i.e., the denominator is 0.)
+
+
+#Key questions to think about -- what does it mean in application to have 
+# different summary statistics (density and transitivity?)
+
+#Reciprocity
 reciprocity(aidsblog, mode="default")
-# ---
-## [1] 0.03278689
-# ---
-reciprocity(aidsblog, mode="ratio")
-# ---
-## [1] 0.01666667
-# ---
 
-# CHUNK 22
+reciprocity(aidsblog, mode="ratio") #this is what we looked at in class
+
+
+#Checking whether or not the yeast network is connected
 is.connected(yeast)
-# ---
-## [1] FALSE
-# ---
 
-# CHUNK 23
-comps <- decompose.graph(yeast)
-table(sapply(comps, vcount))
+#It is not, so let's decompose the graph into its
+#connected components
+comps <- decompose.graph(yeast) #calculates the connected components
+
+table(sapply(comps, vcount)) #counts the number of vertices in each connected component
 # ---
 ## 
 ##    2    3    4    5    6    7 2375 
 ##   63   13    5    6    1    3    1
 # ---
 
-# CHUNK 24
+
+#the components are organized in the list by size (in decreasing order)
+#so, here we just look at the "giant component" (i.e., the component with the largest
+# number of nodes)
 yeast.gc <- decompose.graph(yeast)[[1]]
 
-# CHUNK 25
+#average path length
 average.path.length(yeast.gc)
-# ---
-## [1] 5.09597
-# ---
 
-# CHUNK 26
+#maximum shortest path length / diameter
 diameter(yeast.gc)
-# ---
-## [1] 15
-# ---
 
-# CHUNK 27
+
+
 transitivity(yeast.gc)
-# ---
-## [1] 0.4686663
-# ---
+
 
 # CHUNK 28
 vertex.connectivity(yeast.gc)
@@ -270,7 +276,35 @@ table(aidsblog.scc$csize)
 
 ###------------------------------------------
 ## Part 3: Community Detection
+#Let's look at the Political blog network
 
+#Reading in the Political blog network
+pol.blog.edge <- read.table(file = "https://raw.githubusercontent.com/jdwilson4/Network-Analysis-I/master/Data/polblogs.txt",
+                            header = FALSE)
+
+#convert to igraph (force it to be undirected)
+pol.blog.graph <- graph.edgelist(as.matrix(pol.blog.edge) + 1, directed = FALSE)
+
+plot(pol.blog.graph, layout = layout.kamada.kawai) #this is ugly, let's try again...
+
+#let's get rid of isolates (and vertices with only degree = 1)
+pol.blog.graph2 <- induced.subgraph(pol.blog.graph, vids = which(degree(pol.blog.graph) > 1))
+
+plot(pol.blog.graph2, layout = layout.kamada.kawai) #still not very pretty.. let's try statnet
+
+library(statnet)
+pol.blog.network <- network(as.matrix(get.adjacency(pol.blog.graph2)), directed = FALSE)
+
+plot(pol.blog.network) #much prettier :)
+
+##Looks like there is good clustering here, so let's run some
+# community detection on this graph to visualize the communities
+
+
+
+#---------- End political blog
+
+#old community detection stuff
 kc <- fastgreedy.community(karate)
 length(kc)
 sizes(kc)
