@@ -25,6 +25,8 @@ library(Matrix)
 #   (e) 2/2pt - adj matrix/sparse storage?
 #   (f) 2/2pt - questions to investigate?
 # -------------------------------------------------------------------------
+
+# SNAP documentation: https://snap.stanford.edu/data/wiki-Vote.html
 # load SNAP data set 
 link <- "http://snap.stanford.edu/data/wiki-Vote.txt.gz"
 download.file(link, destfile = "Wiki-Vote.txt.gz")
@@ -51,8 +53,6 @@ is_directed(g)
 ##  2e  - storage for sparse rep? matrix rep?
 # Sparse representation: O(E)
 # Matrix representation: O(V^2)
-
-##  2f  -  qustions to explore?
 
 
 
@@ -94,6 +94,8 @@ plot(sub.g3, layout = layout.fruchterman.reingold)
 
 
 # network properties : 
+# We could resize the vertices based on degree or centrality and color those who
+# were successfully promoted.
 
 
 # Question 4
@@ -167,7 +169,8 @@ length(corr.pvals.adjusted[corr.pvals.adjusted < 0.01])
 # [1] 1846
 # ------
 
-## 6a
+
+## a
 # create an empty n x n adjacency matrix
 iris.adjacency <- matrix(0, n, n)
 
@@ -181,7 +184,7 @@ iris.adjacency <- iris.adjacency + t(iris.adjacency)
 image(Matrix(iris.adjacency))
 
 
-## 6b 
+## b 
 iris.g <- graph.adjacency(iris.adjacency, mode = "undirected")
 
 V(iris.g)[iris$Species == "setosa"]$color <- "red"
@@ -200,6 +203,7 @@ plot(iris.g, layout=layout.kamada.kawai)
 title("Iris Flowers: \nKamada-Kawai \nLayout")
 plot(iris.g, layout=layout.fruchterman.reingold)
 title("Iris Flowers: \nFruchterman-Reingold \nLayout")
+
 
 
 # - GAUSSIAN GRAPHICAL MODEL -
@@ -243,7 +247,4 @@ plot(iris.hg.net, vertex.col=labels, edge.col="grey50")
 plot(iris.hg.net, vertex.col=labels, edge.col="grey50", mode = "circle")
 plot(iris.hg.net, vertex.col=labels, edge.col="grey50", mode = "kamadakawai")
 plot(iris.hg.net, vertex.col=labels, edge.col="grey50", mode = "fruchtermanreingold")
-
-
-## d
 
