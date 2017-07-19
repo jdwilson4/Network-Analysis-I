@@ -288,22 +288,81 @@ pol.blog.graph <- graph.edgelist(as.matrix(pol.blog.edge) + 1, directed = FALSE)
 plot(pol.blog.graph, layout = layout.kamada.kawai) #this is ugly, let's try again...
 
 #let's get rid of isolates (and vertices with only degree = 1)
-pol.blog.graph2 <- induced.subgraph(pol.blog.graph, vids = which(degree(pol.blog.graph) > 1))
+pol.blog.graph2 <- igraph::induced.subgraph(pol.blog.graph, vids = which(igraph::degree(pol.blog.graph) > 1))
 
-plot(pol.blog.graph2, layout = layout.kamada.kawai) #still not very pretty.. let's try statnet
+
+#Get rid of multiple edges and self - loops
+pol.blog.graph3 <- simplify(pol.blog.graph2)
+#plot(pol.blog.graph2, layout = layout.kamada.kawai) #still not very pretty.. let's try statnet
 
 library(statnet)
-pol.blog.network <- network(as.matrix(get.adjacency(pol.blog.graph2)), directed = FALSE)
+pol.blog.network <- network(as.matrix(get.adjacency(pol.blog.graph3)), directed = FALSE)
 
 plot(pol.blog.network) #much prettier :)
 
 ##Looks like there is good clustering here, so let's run some
 # community detection on this graph to visualize the communities
 
+#Community detection methods
+#fast and greedy
+
+f_g <- cluster_fast_greedy(pol.blog.graph3)
+
+#look at membership
+f_g$membership
+
+#look at modularity score
+f_g$modularity
+
+#what are the sizes of the class labels?
+table(f_g$membership)
+
+#plotting the network according to community label
+#first plot the original graph
+x <- plot(pol.blog.network)
+
+colors <- c("blue", "red", "yellow", "purple", "pink")
+par(mfrow = c(1,2))
+plot(pol.blog.network, coord = x, main = "Original Network")
+plot(pol.blog.network, coord = x, main = "Fast and Greedy",
+     vertex.col = f_g$membership)
+
+#plotting the community structure using our own defined colors
+plot(pol.blog.network, coord = x, main = "Fast and Greedy",
+     vertex.col = colors[f_g$membership])
+
+
+
+##Running 5 different community detection methods and compare
+info.clusters <- cluster_infomap(pol.blog.graph3)
+l_p <- cluster_label_prop(pol.blog.graph3)
+louvain <- cluster_louvain(pol.blog.graph3)
+walktrap <- cluster_walktrap(pol.blog.graph3)
+
+#size of communities for each method
+table(info.clusters$membership)
+table(l_p$membership)
+table(louvain$membership)
+table(walktrap$membership)
+
+#plotting each of these side by side
+par(mfrow = c(2, 3))
+plot(pol.blog.network, coord = x, main = "Original")
+plot(pol.blog.network, coord = x, main = "Fast and Greedy",
+     vertex.col = f_g$membership)
+plot(pol.blog.network, coord = x, main = "Infomap",
+     vertex.col = info.clusters$membership)
+plot(pol.blog.network, coord = x, main = "Label Propagation", 
+     vertex.col = l_p$membership)
+plot(pol.blog.network, coord = x, main = "Louvain", 
+     vertex.col = louvain$membership)
+plot(pol.blog.network, coord = x, main = "Walktrap", 
+vertex.col = walktrap$membership)
 
 
 #---------- End political blog
 
+#-----------------------------
 #old community detection stuff
 kc <- fastgreedy.community(karate)
 length(kc)
@@ -353,7 +412,6 @@ library(statnet)
 library(Matrix)
 
 
-
 ## EXAMPLE 1: Zachary's Karate Club Network
 ### Download Data and Convert to Matrix
 #download raw edgelist
@@ -371,23 +429,24 @@ karate.undirected.graph <- graph.edgelist(karate.edgelist, directed = FALSE)
 karate.adjacency <- as_adj(karate.igraph)
 
 
-
-  
 ##Network Centrality Measures and Visualization
 ###Create network from edge list
-karate.network <- network(karate.edgelist)
+karate.network <- network(karate.edgelist, directed = TRUE)
 # known labels
 group.labels <- c(1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2) 
+
+
+par(mfrow = c(1,1))
 plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50", vertex.col = group.labels)
 
 #store the node and edge coordinates
 x <- plot(karate.network, main = paste("Zachary's Karate Club"), usearrows = TRUE, edge.col = "grey50", vertex.col = group.labels)
 
 #change the size of each vertex according to out-degree
-plot(karate.network, main = paste("Out-Degree Centrality"), usearrows = TRUE, vertex.cex = rowSums(as.matrix(karate.adjacency)) + 1, edge.col = "grey50", coord = x, vertex.col = group.labels)
+plot(karate.network, main = paste("Out-Degree Centrality"), usearrows = TRUE, vertex.cex = 20*(rowSums(as.matrix(karate.adjacency)) + 1)/sum(as.matrix(karate.adjacency)), edge.col = "grey50", coord = x, vertex.col = group.labels)
 
 #change the size of each vertex according to in-degree
-plot(karate.network, main = paste("In-Degree Centrality"), usearrows = TRUE, vertex.cex = colSums(as.matrix(karate.adjacency)) + 1, edge.col = "grey50", coord = x, vertex.col = group.labels)
+plot(karate.network, main = paste("In-Degree Centrality"), usearrows = TRUE, vertex.cex = (colSums(as.matrix(karate.adjacency)) + 1)/3, edge.col = "grey50", coord = x, vertex.col = group.labels)
 
 ###Calculate In-Degree, Out-Degree, Eigenvector, Betweenness, and Closeness Centralities
 
