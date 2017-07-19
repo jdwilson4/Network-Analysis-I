@@ -71,6 +71,7 @@ The focus of this course will be to provide you with the basic techniques availa
 | [Community Detection](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/Community_Detection.pdf) | [[Review Paper]](https://arxiv.org/pdf/0906.0612.pdf) [[Applications]](https://arxiv.org/pdf/1705.02305.pdf)| - | - |
 | [Structural Importance: Vertex Centrality](http://tuvalu.santafe.edu/~aaronc/courses/5352/csci5352_2016_L2.pdf) | [Centrality in Social Networks](http://www.analytictech.com/borgatti/papers/centflow.pdf) | - | [Centrality Examples](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Case%20Studies/Centrality.Rmd)|
 | [Case Study: Descriptive Analysis in R](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Descriptive_Analysis.R)| - | - | - |
+| [Feature Learning for Networks](https://github.com/jdwilson4/Network-Analysis-I/blob/master/Lecture%20Notes/FeatureLearningForNetworks.pdf)| - | - | - |
 <!-- | Empirical Network Models |  | - | - | -->
 
 <!-- **Mesoscopic Properties of Networks**
