@@ -82,9 +82,7 @@ The focus of this course will be to provide you with the basic techniques availa
 
 | Topic | Reading | Practice | In-Class Code |
 |:--- | :---  | :---  | :--- |
-| Epidemic Models: SIS, SIR | - | - | - |
-| Independent Cascade Model | - | - | - |
-| Linear Threshold Models | - | - | - |
+| [Epidemic Models - Ch. 8.5](https://static1.squarespace.com/static/5672e813bfe8739f7afa013a/t/595be67c46c3c48b86756cb2/1499195017846/Statistical%2BAnalysis%2Bof%2BNetwork%2BData%2Bwit.pdf) | [Watts Model](https://www.stat.berkeley.edu/~aldous/260-FMIE/Papers/watts.pdf)| - | - |
 <!-- **Multilayer and Temporal Networks**
 
 | Topic | Reading | Practice |
